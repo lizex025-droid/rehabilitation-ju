@@ -1,5 +1,7 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
+import { socialMetadata } from '@/lib/seo';
+import { BreadcrumbJsonLd } from '@/components/StructuredData';
 import { notFound } from 'next/navigation';
 import { StudyPlanYearPicker } from '@/components/StudyPlanYearPicker';
 
@@ -16,7 +18,9 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: Promise<{specialty:string}> }): Promise<Metadata> {
   const { specialty } = await params;
-  return { title: `الخطط الدراسية — ${specialties[specialty] || 'علوم التأهيل'} | النخبة` };
+  const title = `الخطط الدراسية — ${specialties[specialty] || 'علوم التأهيل'} | النخبة`;
+  const description = `الخطط الدراسية لتخصص ${specialties[specialty] || 'علوم التأهيل'} في كلية علوم التأهيل بالجامعة الأردنية.`;
+  return { title, description, ...socialMetadata(title, description, `/study-plans/${specialty}`) };
 }
 
 export default async function SpecialtyPlansPage({ params }: { params: Promise<{specialty:string}> }) {
@@ -24,6 +28,7 @@ export default async function SpecialtyPlansPage({ params }: { params: Promise<{
   const title = specialties[specialty];
   if (!title) notFound();
   return <main className="plan-year-page">
+    <BreadcrumbJsonLd items={[{ name: 'الرئيسية', path: '/' }, { name: 'الخطط الدراسية', path: '/study-plans' }, { name: title, path: `/study-plans/${specialty}` }]} />
     <div className="container-wide">
       <nav className="plan-year-breadcrumb" aria-label="مسار التصفح">
         <Link href="/study-plans">الخطط الدراسية</Link><span aria-hidden="true">/</span><span>{title}</span>

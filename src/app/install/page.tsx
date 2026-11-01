@@ -1,7 +1,9 @@
 import type { Metadata } from 'next';
+import { socialMetadata } from '@/lib/seo';
 import { IphoneInstallGuide } from '@/components/IphoneInstallGuide';
 
 export const metadata: Metadata = {
+  ...socialMetadata('تنزيل تطبيق rehab ju', 'دليل إضافة موقع rehab ju إلى الشاشة الرئيسية على جهاز الآيفون.', '/install'),
   title: 'تنزيل تطبيق rehab ju',
   description: 'دليل إضافة موقع rehab ju إلى الشاشة الرئيسية على جهاز الآيفون.',
 };

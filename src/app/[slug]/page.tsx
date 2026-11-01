@@ -2,6 +2,8 @@ import { specialtyMaterialSets } from '@/lib/specialtyMaterials';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import type { Metadata } from 'next';
+import { socialMetadata } from '@/lib/seo';
+import { BreadcrumbJsonLd } from '@/components/StructuredData';
 import { pages, seoTitles } from '@/lib/content';
 import { SectionHeader, ServiceCard } from '@/components/Blocks';
 import { GpaCalculator } from '@/components/GpaCalculator';
@@ -11,12 +13,21 @@ import { SpecialtyMaterialsDirectory } from '@/components/SpecialtyMaterialsDire
 import { AiAcademicGuide } from '@/components/AiAcademicGuide';
 
 export function generateStaticParams() { return [...new Set([...Object.keys(pages), ...Object.keys(specialtyMaterialSets)])].map(slug => ({ slug })); }
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> { const { slug } = await params; const page = pages[slug]; return page ? { title: { absolute: seoTitles[slug] || page.title }, description: page.description } : specialtyMaterialSets[slug] ? { title: specialtyMaterialSets[slug].title, description: specialtyMaterialSets[slug].subtitle } : {}; }
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const page = pages[slug];
+  const specialty = specialtyMaterialSets[slug];
+  if (!page && !specialty) return {};
+  const title = page ? (seoTitles[slug] || page.title) : specialty.title;
+  const description = page ? page.description : specialty.subtitle;
+  return { title: { absolute: title }, description, ...socialMetadata(title, description, `/${slug}`) };
+}
 export default async function InnerPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params; const page = pages[slug]; if (!page && !specialtyMaterialSets[slug]) notFound();
   const isSpecialty = !!specialtyMaterialSets[slug];
   const isMaterials = slug === 'materials';
   return <>
+    <BreadcrumbJsonLd items={[{ name: 'الرئيسية', path: '/' }, ...(isSpecialty ? [{ name: 'مركز المواد', path: '/materials' }] : []), { name: page?.title || specialtyMaterialSets[slug].title, path: `/${slug}` }]} />
     {slug === 'ai' && <section className="ai-news-feature"><div className="container-wide"><figure className="ai-news-card" data-card-reveal>
       <header className="ai-news-card-header"><span className="eyebrow"><span className="eyebrow-line" />خبر الجامعة الأردنية</span><h1>تعليمات استخدام أدوات الذكاء الاصطناعي في الجامعة الأردنية</h1><p>اطّلع على الخبر والتفاصيل المنشورة في الموقع الرسمي للجامعة الأردنية.</p></header>
       <a className="ai-news-image" href="/ai/ju-ai-news.png" target="_blank" rel="noopener noreferrer" aria-label="عرض صورة خبر الجامعة الأردنية بالحجم الكامل"><Image src="/ai/ju-ai-news.png" alt="خبر الجامعة الأردنية حول تعليمات استخدام أدوات الذكاء الاصطناعي" width={1902} height={869} priority sizes="(max-width: 1400px) calc(100vw - 72px), 1330px" /></a>
