@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { socialMetadata } from '@/lib/seo';
 import Link from 'next/link';
 import { categories } from '@/lib/content';
 import { SectionHeader, MaterialCard } from '@/components/Blocks';
@@ -7,7 +8,7 @@ import { ArrowIcon } from '@/components/Icons';
 import { HeroArt } from '@/components/HeroArt';
 import { VisionScrollytelling } from '@/components/VisionScrollytelling';
 
-export const metadata: Metadata = { title: { absolute: 'النخبة علوم التأهيل | مواد وملخصات كلية علوم التأهيل الجامعة الأردنية' }, description: 'موقع النخبة الأكاديمي لطلبة كلية علوم التأهيل في الجامعة الأردنية. تصفح المواد، الملخصات، المراجعات، أدوات الذكاء الاصطناعي، إيميلات الدكاترة، والخطط الدراسية بسهولة.' };
+export const metadata: Metadata = { ...socialMetadata('النخبة علوم التأهيل | مواد وملخصات كلية علوم التأهيل الجامعة الأردنية', 'موقع النخبة الأكاديمي لطلبة كلية علوم التأهيل في الجامعة الأردنية. تصفح المواد، الملخصات، المراجعات، أدوات الذكاء الاصطناعي، إيميلات الدكاترة، والخطط الدراسية بسهولة.', '/'), title: { absolute: 'النخبة علوم التأهيل | مواد وملخصات كلية علوم التأهيل الجامعة الأردنية' }, description: 'موقع النخبة الأكاديمي لطلبة كلية علوم التأهيل في الجامعة الأردنية. تصفح المواد، الملخصات، المراجعات، أدوات الذكاء الاصطناعي، إيميلات الدكاترة، والخطط الدراسية بسهولة.' };
 
 export default function HomePage() { return <>
   <section className="home-hero"><div className="container-wide hero-layout"><div className="hero-copy"><span className="eyebrow hero-eyebrow"><span className="eyebrow-line" />من الطالب… وللطالب</span><h1>النخبة كلية علوم التأهيل في الجامعة الأردنية</h1><p className="hero-lead">ادرس موادك بوضوح… <em>وابدأ من المكان الصحيح.</em></p><p className="hero-body">النخبة موقع أكاديمي طلابي يخدم طلبة كلية علوم التأهيل في الجامعة الأردنية، من خلال توفير المواد الدراسية، الملخصات، المراجعات، أدوات الذكاء الاصطناعي، إيميلات الدكاترة، والخطط الدراسية في مكان واحد منظم وسهل الوصول.</p><div className="hero-buttons"><Link href="/materials" className="button button-gold">تصفح مركز المواد <ArrowIcon className="arrow-icon" /></Link><Link href="/request-help" className="button button-outline-light">اطلب مساعدة دراسية</Link></div><div className="hero-foot"><span className="hero-foot-line" /><span>ادرس بوضوح. راجع بثقة. اسأل بدون تردد.</span></div></div><HeroArt /></div><Link href="#materials" className="scroll-hint" aria-label="انتقل إلى أقسام المواد"><span>اكتشف أكثر</span><span className="scroll-track"><span /></span></Link></section>

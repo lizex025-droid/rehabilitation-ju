@@ -1,8 +1,10 @@
 import type { Metadata } from 'next';
+import { socialMetadata } from '@/lib/seo';
 import { LegalPage } from '@/components/LegalPage';
 import { termsSections } from '@/lib/legalPolicies';
 
 export const metadata: Metadata = {
+  ...socialMetadata('شروط الاستخدام والمساهمة | النخبة', 'شروط استخدام موقع النخبة الطلابي وأحكام المساهمات التعليمية وحقوق أصحاب المحتوى.', '/terms'),
   title: 'شروط الاستخدام والمساهمة | النخبة',
   description: 'شروط استخدام موقع النخبة الطلابي وأحكام المساهمات التعليمية وحقوق أصحاب المحتوى.',
 };
