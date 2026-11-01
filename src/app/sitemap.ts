@@ -1,4 +1,7 @@
 import type { MetadataRoute } from 'next';
+
+// Next.js static export requires prerendering this metadata route.
+export const dynamic = 'force-static';
 import { pages } from '@/lib/content';
 import { allCourses, specialtyMaterialSets } from '@/lib/specialtyMaterials';
 import { absoluteUrl } from '@/lib/seo';
