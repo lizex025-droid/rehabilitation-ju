@@ -27,6 +27,7 @@ export default async function InnerPage({ params }: { params: Promise<{ slug: st
   const isSpecialty = !!specialtyMaterialSets[slug];
   const isMaterials = slug === 'materials';
   return <>
+    {(slug === 'ai' || slug === 'gpa-calculator') && <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" precedence="default" />}
     <BreadcrumbJsonLd items={[{ name: 'الرئيسية', path: '/' }, ...(isSpecialty ? [{ name: 'مركز المواد', path: '/materials' }] : []), { name: page?.title || specialtyMaterialSets[slug].title, path: `/${slug}` }]} />
     {slug === 'ai' && <section className="ai-news-feature"><div className="container-wide"><figure className="ai-news-card" data-card-reveal>
       <header className="ai-news-card-header"><span className="eyebrow"><span className="eyebrow-line" />خبر الجامعة الأردنية</span><h1>تعليمات استخدام أدوات الذكاء الاصطناعي في الجامعة الأردنية</h1><p>اطّلع على الخبر والتفاصيل المنشورة في الموقع الرسمي للجامعة الأردنية.</p></header>
