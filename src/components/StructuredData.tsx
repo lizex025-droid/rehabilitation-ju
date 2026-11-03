@@ -42,6 +42,7 @@ export const websiteJsonLd: JsonLdData = {
   '@type': 'WebSite',
   '@id': `${SITE_URL}/#website`,
   name: SITE_NAME,
+  alternateName: 'النخبة لعلوم التأهيل',
   url: SITE_URL,
   inLanguage: 'ar-JO',
   publisher: { '@id': `${SITE_URL}/#organization` },
