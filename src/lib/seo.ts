@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 export const SITE_URL = 'https://rehabilitation-ju.pages.dev';
-export const SITE_NAME = 'النخبة — علوم التأهيل';
+export const SITE_NAME = 'النخبة';
 export const SOCIAL_IMAGE = `${SITE_URL}/al-nokhba-orbital-learning-board-v2.png`;
 
 export function absoluteUrl(path: string): string {
