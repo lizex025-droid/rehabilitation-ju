@@ -198,7 +198,7 @@ export function EnglishGradeCalculator() {
             <label htmlFor="english-target">التقدير المستهدف</label>
             <select id="english-target" value={target} onChange={event => setTarget(event.target.value)}>
               <option value="">اختر التقدير</option>
-              {letterThresholds.map(item => <option key={item.grade} value={item.minimum}>{item.grade} — {item.minimum} نقطة فأكثر</option>)}
+              {letterThresholds.map(item => <option key={item.grade} value={item.minimum}>{item.grade}</option>)}
             </select>
           </div>
           {targetResult && <div className={styles.targetResult} role="status" aria-live="polite">
