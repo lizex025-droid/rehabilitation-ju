@@ -60,3 +60,45 @@
 @media(max-width:640px){.shell{width:100%;min-width:0;padding:0 0 20px}.intro{border-radius:12px;padding:25px 19px}.intro p{font-size:13px}.weights{grid-template-columns:1fr;gap:7px;margin-top:17px}.weights span{padding:7px 12px}.columns{grid-template-columns:minmax(0,1fr);margin-top:16px;gap:16px;min-width:0}.formColumn,.resultColumn{gap:16px;width:100%;min-width:0}.resultColumn{display:flex;flex-direction:column;align-items:stretch;grid-template-columns:none}.panel,.targetPanel,.results{width:100%;min-width:0;max-width:100%;border-radius:13px;padding:19px}.reset{align-self:stretch;width:100%;min-height:46px}.marksGrid{gap:8px}.field select,.field input{min-height:48px;padding:8px;font-size:16px}.stepHead h2,.targetTitle h2{font-size:17px}.stepHead p,.targetTitle p{font-size:12px}.stepHead>div,.targetTitle>div{min-width:0}.stepNumber,.targetIcon{width:32px;height:32px}.courseSummary{font-size:12px}.resultHead{flex-wrap:wrap;row-gap:8px}.heroNumber{gap:8px;margin-block:22px 18px}.heroNumber strong{font-size:clamp(38px,11vw,52px)}.heroNumber>b{font-size:21px;min-width:56px;padding:6px 11px}.breakdownRow{gap:8px}.breakdownRow b{font-size:12px}.targetResult{overflow-wrap:anywhere}}
 @media(max-width:360px){.marksGrid{grid-template-columns:1fr}.marksGrid .field input{text-align:start}.intro h1{font-size:25px}}
 @media(prefers-reduced-motion:reduce){.reset,.field input,.field select{transition:none}}
+
+/* Al Nokhba identity: compact assessment summary and navy/gold input steps. */
+.intro{padding:clamp(20px,2.8vw,30px)}
+.introTop{margin-bottom:15px}
+.weights{max-width:none;margin-top:0}
+.panel{position:relative;background:radial-gradient(circle at 4% 5%,rgba(198,161,91,.13),transparent 40%),linear-gradient(135deg,#0b2b4b 0%,#061c34 85%);border:1px solid rgba(198,161,91,.48);box-shadow:inset 0 2px 0 rgba(221,183,116,.3),0 14px 30px rgba(6,27,51,.13);color:#fff}
+.panel .stepHead h2{color:#fff}
+.panel .stepHead p{color:#bfcfe0}
+.panel .stepNumber{background:#d2ae6e;color:#071d35;border-color:#e6c68b;box-shadow:0 4px 14px rgba(0,0,0,.12)}
+.panel .field label{color:#f1e4cb}
+.panel .field select,.panel .field input{background:#f7f9fc;color:#0e2d4d;border-color:#c4a572;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.panel .field select:focus,.panel .field input:focus{border-color:#edc980;box-shadow:0 0 0 3px rgba(221,183,116,.32)}
+.panel .field select option{background:#fff;color:#0e2d4d}
+.panel .field input::placeholder{color:#718096;opacity:1}
+.panel .contribution{color:#c9d9ea}
+.panel .contribution b{color:#f0cc8a}
+.panel .courseSummary{border-top:1px solid rgba(231,204,156,.25);color:#d4e2ed}
+.panel .courseSummary b{color:#efca88}
+.panel .required{color:#edb6a5}
+.panel .fieldError{color:#ffcab9}
+.reset{border-color:#c6a15b;color:#132f4d;font-weight:800;box-shadow:0 4px 12px rgba(6,27,51,.06)}
+.reset:hover{border-color:#a98038;background:#f7eedf}
+@media(max-width:640px){
+  .intro{padding:18px 16px}
+  .introTop{margin-bottom:12px}
+  .eyebrow{font-size:12px}
+  .courseTag{font-size:11px}
+  .weights{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;margin-top:0}
+  .weights span{min-width:0;min-height:65px;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:8px 5px;gap:4px;font-size:11px;line-height:1.4}
+  .weights b{font-size:19px;line-height:1.1}
+  .panel{border-radius:13px;padding:20px 17px}
+  .panel .stepHead{margin-bottom:18px}
+  .panel .stepHead h2{font-size:17px}
+  .panel .stepHead p{font-size:12px}
+  .panel .field label{font-size:13px}
+  .panel .contribution{font-size:12px}
+  .panel .marksGrid{gap:8px}
+}
+@media(max-width:360px){
+  .weights span{font-size:10px;padding:8px 3px}
+  .panel .marksGrid{grid-template-columns:1fr}
+}
