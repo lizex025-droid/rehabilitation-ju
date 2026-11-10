@@ -11,6 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const paths = new Set<string>([
     '/',
     '/install',
+    '/english-grade-calculator',
     '/privacy',
     '/terms',
     ...Object.keys(pages).map(slug => `/${slug}`),
