@@ -196,11 +196,9 @@ export function EnglishGradeCalculator() {
             <div className={styles.breakdown}>
               {breakdown.map(item => <div className={styles.breakdownRow} key={item.title}><span>{item.title}</span><b dir="ltr">{format(item.value)} / {item.maximum}</b></div>)}
             </div>
-            <p className={result.accepted ? styles.statusGood : styles.statusWarning}>
-              {result.accepted
-                ? 'تتحقق شروط اعتماد هذا المجموع.'
-                : 'المجموع أقل من 55% ولم يتحقق شرط الانتقال بين المستويات الرئيسية؛ راجع مركز اللغات لتأكيد طريقة احتساب العلامة.'}
-            </p>
+            {!result.accepted && <p className={styles.statusWarning}>
+              المجموع أقل من 55% ولم يتحقق شرط الانتقال بين المستويات الرئيسية؛ راجع مركز اللغات لتأكيد طريقة احتساب العلامة.
+            </p>}
           </> : <p className={styles.emptyResult}>أدخل مستوى التصنيفي الأول والنهائي وعلامات المستويات الثلاثة لعرض النتيجة والتقدير.</p>}
         </section>
 
