@@ -69,13 +69,13 @@ function StepHeader({ number, title, detail }: { number: string; title: string; 
   </div>;
 }
 
-function LevelSelect({ id, label, placeholder, value, levels, scores, onChange }: {
+function LevelSelect<T extends string>({ id, label, placeholder, value, levels, scores, onChange }: {
   id: string;
   label: string;
   placeholder: string;
   value: string;
-  levels: readonly string[];
-  scores: Record<string, number>;
+  levels: readonly T[];
+  scores: Record<T, number>;
   onChange: (value: string) => void;
 }) {
   return <div className={styles.field}>
@@ -84,7 +84,7 @@ function LevelSelect({ id, label, placeholder, value, levels, scores, onChange }
       <option value="">{placeholder}</option>
       {levels.map(level => <option value={level} key={level}>{level}</option>)}
     </select>
-    {value && <span className={styles.contribution}>مساهمة الامتحان: <b dir="ltr">{format(scores[value])} / {id === 'english-initial' ? '20' : '35'}</b> نقطة</span>}
+    {value && <span className={styles.contribution}>مساهمة الامتحان: <b dir="ltr">{format(scores[value as T])} / {id === 'english-initial' ? '20' : '35'}</b> نقطة</span>}
   </div>;
 }
 
@@ -151,7 +151,7 @@ export function EnglishGradeCalculator() {
 
     <div className={styles.columns}>
       <div className={styles.formColumn}>
-        <section className={styles.panel} aria-labelledby="english-step-1">
+        <section className={styles.panel} aria-label="نتيجة الامتحان التصنيفي الأول">
           <StepHeader number="01" title="الامتحان التصنيفي الأول" detail="اختر المستوى الذي حصلت عليه في بداية الدراسة — وزنه 20 نقطة." />
           <LevelSelect id="english-initial" label="نتيجة الامتحان الأول" placeholder="اختر المستوى" value={initial} onChange={setInitial} levels={initialLevels} scores={initialPoints} />
         </section>
