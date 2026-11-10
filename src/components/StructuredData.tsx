@@ -42,7 +42,9 @@ export const websiteJsonLd: JsonLdData = {
   '@type': 'WebSite',
   '@id': `${SITE_URL}/#website`,
   name: SITE_NAME,
-  alternateName: 'النخبة لعلوم التأهيل',
+  // Google considers aliases in order if it cannot confidently display the main name.
+  // The exact pages.dev hostname is a last-resort fallback instead of its parent brand.
+  alternateName: ['النخبة علوم التأهيل', 'النخبة لعلوم التأهيل', 'Al Nokhba', 'rehabilitation-ju.pages.dev'],
   url: SITE_URL,
   inLanguage: 'ar-JO',
   publisher: { '@id': `${SITE_URL}/#organization` },
