@@ -137,7 +137,7 @@ function AdmissionCalculator() {
 export function GpaCalculator() {
   const [activeTab, setActiveTab] = useState<CalculatorTab>('gpa');
   return <section className="calculator-suite" data-reveal>
-    <div className="suite-heading"><span className="eyebrow"><span className="eyebrow-line" />أداة الطالب</span><h1>حاسبات الطالب الجامعي</h1><p>احسب معدلك، استكشف أعلى معدل ممكن، وتعرّف إلى خيارات القبول وعلامة اللغة الإنجليزية من مكان واحد.</p></div>
+    <div className="suite-heading"><span className="eyebrow"><span className="eyebrow-line" />أداة الطالب</span><h1>حاسبات الطالب الجامعي</h1></div>
     <div className="calculator-tabs" style={{ gridTemplateColumns: "repeat(4, minmax(0, 1fr))" }} role="tablist" aria-label="اختر الحاسبة">{tabs.map(tab => <button type="button" role="tab" id={`tab-${tab.id}`} aria-controls={`panel-${tab.id}`} aria-selected={activeTab === tab.id} className={activeTab === tab.id ? 'active' : ''} onClick={() => setActiveTab(tab.id)} key={tab.id}><span>{tab.label}</span><small>{tab.short}</small></button>)}</div>
     <div role="tabpanel" id={`panel-${activeTab}`} aria-labelledby={`tab-${activeTab}`}>{activeTab === 'gpa' && <UniversityGpaCalculator />}{activeTab === 'maximum' && <MaximumGpaCalculator />}{activeTab === 'admission' && <AdmissionCalculator />}{activeTab === 'english' && <EnglishGradeCalculator />}</div>
   </section>;
