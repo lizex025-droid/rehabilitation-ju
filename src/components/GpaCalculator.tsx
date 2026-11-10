@@ -3,8 +3,9 @@
 import { useMemo, useState } from 'react';
 import { admissionPrograms } from '@/lib/admissionPrograms';
 import { PlusIcon } from './Icons';
+import { EnglishGradeCalculator } from './EnglishGradeCalculator';
 
-type CalculatorTab = 'gpa' | 'maximum' | 'admission';
+type CalculatorTab = 'gpa' | 'maximum' | 'admission' | 'english';
 type Course = { id: number; hours: string; grade: string; repeated: boolean; oldGrade: string };
 
 const gradeOptions = [
@@ -20,6 +21,7 @@ const tabs: { id: CalculatorTab; label: string; short: string }[] = [
   { id: 'gpa', label: 'حاسبة المعدل الجامعي', short: 'المعدل الجامعي' },
   { id: 'maximum', label: 'حاسبة أعلى معدل ممكن عند التخرج', short: 'أعلى معدل' },
   { id: 'admission', label: 'حاسبة القبول', short: 'القبول' },
+  { id: 'english', label: 'حاسبة علامة اللغة الإنجليزية', short: 'الإنجليزي' },
 ];
 
 function SelectGrade({ value, onChange, label = 'التقدير' }: { value: string; onChange: (value: string) => void; label?: string }) {
@@ -135,8 +137,8 @@ function AdmissionCalculator() {
 export function GpaCalculator() {
   const [activeTab, setActiveTab] = useState<CalculatorTab>('gpa');
   return <section className="calculator-suite" data-reveal>
-    <div className="suite-heading"><span className="eyebrow"><span className="eyebrow-line" />أداة الطالب</span><h1>حاسبات الطالب الجامعي</h1><p>احسب معدلك، استكشف أفضل معدل ممكن، وتعرّف إلى خيارات القبول من مكان واحد.</p></div>
-    <div className="calculator-tabs" role="tablist" aria-label="اختر الحاسبة">{tabs.map(tab => <button type="button" role="tab" id={`tab-${tab.id}`} aria-controls={`panel-${tab.id}`} aria-selected={activeTab === tab.id} className={activeTab === tab.id ? 'active' : ''} onClick={() => setActiveTab(tab.id)} key={tab.id}><span>{tab.label}</span><small>{tab.short}</small></button>)}</div>
-    <div role="tabpanel" id={`panel-${activeTab}`} aria-labelledby={`tab-${activeTab}`}>{activeTab === 'gpa' && <UniversityGpaCalculator />}{activeTab === 'maximum' && <MaximumGpaCalculator />}{activeTab === 'admission' && <AdmissionCalculator />}</div>
+    <div className="suite-heading"><span className="eyebrow"><span className="eyebrow-line" />أداة الطالب</span><h1>حاسبات الطالب الجامعي</h1><p>احسب معدلك، استكشف أعلى معدل ممكن، وتعرّف إلى خيارات القبول وعلامة اللغة الإنجليزية من مكان واحد.</p></div>
+    <div className="calculator-tabs" style={{ gridTemplateColumns: "repeat(4, minmax(0, 1fr))" }} role="tablist" aria-label="اختر الحاسبة">{tabs.map(tab => <button type="button" role="tab" id={`tab-${tab.id}`} aria-controls={`panel-${tab.id}`} aria-selected={activeTab === tab.id} className={activeTab === tab.id ? 'active' : ''} onClick={() => setActiveTab(tab.id)} key={tab.id}><span>{tab.label}</span><small>{tab.short}</small></button>)}</div>
+    <div role="tabpanel" id={`panel-${activeTab}`} aria-labelledby={`tab-${activeTab}`}>{activeTab === 'gpa' && <UniversityGpaCalculator />}{activeTab === 'maximum' && <MaximumGpaCalculator />}{activeTab === 'admission' && <AdmissionCalculator />}{activeTab === 'english' && <EnglishGradeCalculator />}</div>
   </section>;
 }
