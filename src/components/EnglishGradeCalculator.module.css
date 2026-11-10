@@ -1,15 +1,15 @@
 .shell{max-width:1160px;margin:0 auto;padding:8px 0 30px;color:var(--text,#102033);font-family:inherit}
-.intro{position:relative;overflow:hidden;padding:clamp(25px,4.5vw,49px);border:1px solid rgba(198,161,91,.5);border-radius:19px;background:radial-gradient(circle at 4% 95%,rgba(198,161,91,.17),transparent 44%),linear-gradient(115deg,#061b33 3%,#0c3154 100%);color:#fff;box-shadow:0 20px 50px rgba(6,27,51,.12)}
-.intro:after{content:"";position:absolute;width:320px;height:320px;border:1px solid rgba(198,161,91,.17);border-radius:50%;left:-110px;top:-110px;box-shadow:0 0 0 50px rgba(198,161,91,.035),0 0 0 100px rgba(198,161,91,.025);pointer-events:none}
-.introTop{display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin-bottom:21px;position:relative;z-index:1}
-.eyebrow{font-size:13px;font-weight:800;letter-spacing:.01em;color:#e6c993}
-.courseTag{font-size:12px;font-weight:700;border-radius:99px;border:1px solid rgba(198,161,91,.5);background:rgba(255,255,255,.075);padding:5px 13px;color:#e9d7b5}
-.intro h1{margin:0 0 12px;font-size:clamp(26px,3.1vw,41px);line-height:1.35;letter-spacing:-.035em;font-weight:800;max-width:700px;position:relative;z-index:1}
-.intro p{max-width:730px;margin:0;color:#dae6f1;font-size:15px;line-height:2;position:relative;z-index:1}
-.weights{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;max-width:780px;margin-top:26px;position:relative;z-index:1}
-.weights span{border:1px solid rgba(255,255,255,.18);border-radius:12px;padding:11px 15px;display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:12px;color:#dce6f2;background:rgba(255,255,255,.055)}
-.weights b{font-size:18px;color:#e5c17e;font-weight:800;direction:ltr}
-.columns{display:grid;grid-template-columns:minmax(0,1.18fr) minmax(310px,.82fr);align-items:start;gap:22px;margin-top:26px}
+
+
+
+
+
+
+
+
+
+
+.columns{display:grid;grid-template-columns:minmax(0,1.18fr) minmax(310px,.82fr);align-items:start;gap:22px;margin-top:0}
 .formColumn,.resultColumn{min-width:0;display:flex;flex-direction:column;gap:19px}
 .panel,.targetPanel,.note{background:#fff;border:1px solid #d9e1e9;border-radius:17px;padding:clamp(19px,3vw,28px);box-shadow:0 5px 22px rgba(6,27,51,.035)}
 .stepHead,.targetTitle{display:flex;align-items:start;gap:14px;margin-bottom:22px}
@@ -56,15 +56,15 @@
 .note strong{display:block;font-size:15px;color:#0b2f51;margin-bottom:8px}
 .note p{color:#52657b;font-size:12px;line-height:2;margin:0 0 11px}
 .privacy{display:block;border-top:1px solid #d7dfe6;padding-top:12px;color:#376378;font-size:12px;font-weight:700;line-height:1.9}
-@media(max-width:900px){.columns{grid-template-columns:1fr}.weights{max-width:none}.resultColumn{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:start}.results{grid-column:1/-1}}
-@media(max-width:640px){.shell{width:100%;min-width:0;padding:0 0 20px}.intro{border-radius:12px;padding:25px 19px}.intro p{font-size:13px}.weights{grid-template-columns:1fr;gap:7px;margin-top:17px}.weights span{padding:7px 12px}.columns{grid-template-columns:minmax(0,1fr);margin-top:16px;gap:16px;min-width:0}.formColumn,.resultColumn{gap:16px;width:100%;min-width:0}.resultColumn{display:flex;flex-direction:column;align-items:stretch;grid-template-columns:none}.panel,.targetPanel,.results{width:100%;min-width:0;max-width:100%;border-radius:13px;padding:19px}.reset{align-self:stretch;width:100%;min-height:46px}.marksGrid{gap:8px}.field select,.field input{min-height:48px;padding:8px;font-size:16px}.stepHead h2,.targetTitle h2{font-size:17px}.stepHead p,.targetTitle p{font-size:12px}.stepHead>div,.targetTitle>div{min-width:0}.stepNumber,.targetIcon{width:32px;height:32px}.courseSummary{font-size:12px}.resultHead{flex-wrap:wrap;row-gap:8px}.heroNumber{gap:8px;margin-block:22px 18px}.heroNumber strong{font-size:clamp(38px,11vw,52px)}.heroNumber>b{font-size:21px;min-width:56px;padding:6px 11px}.breakdownRow{gap:8px}.breakdownRow b{font-size:12px}.targetResult{overflow-wrap:anywhere}}
-@media(max-width:360px){.marksGrid{grid-template-columns:1fr}.marksGrid .field input{text-align:start}.intro h1{font-size:25px}}
+@media(max-width:900px){.columns{grid-template-columns:1fr}.resultColumn{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:start}.results{grid-column:1/-1}}
+@media(max-width:640px){.shell{width:100%;min-width:0;padding:0 0 20px}.columns{grid-template-columns:minmax(0,1fr);margin-top:0;gap:16px;min-width:0}.formColumn,.resultColumn{gap:16px;width:100%;min-width:0}.resultColumn{display:flex;flex-direction:column;align-items:stretch;grid-template-columns:none}.panel,.targetPanel,.results{width:100%;min-width:0;max-width:100%;border-radius:13px;padding:19px}.reset{align-self:stretch;width:100%;min-height:46px}.marksGrid{gap:8px}.field select,.field input{min-height:48px;padding:8px;font-size:16px}.stepHead h2,.targetTitle h2{font-size:17px}.stepHead p,.targetTitle p{font-size:12px}.stepHead>div,.targetTitle>div{min-width:0}.stepNumber,.targetIcon{width:32px;height:32px}.courseSummary{font-size:12px}.resultHead{flex-wrap:wrap;row-gap:8px}.heroNumber{gap:8px;margin-block:22px 18px}.heroNumber strong{font-size:clamp(38px,11vw,52px)}.heroNumber>b{font-size:21px;min-width:56px;padding:6px 11px}.breakdownRow{gap:8px}.breakdownRow b{font-size:12px}.targetResult{overflow-wrap:anywhere}}
+@media(max-width:360px){.marksGrid{grid-template-columns:1fr}.marksGrid .field input{text-align:start}}
 @media(prefers-reduced-motion:reduce){.reset,.field input,.field select{transition:none}}
 
 /* Al Nokhba identity: compact assessment summary and navy/gold input steps. */
-.intro{padding:clamp(20px,2.8vw,30px)}
-.introTop{margin-bottom:15px}
-.weights{max-width:none;margin-top:0}
+
+
+
 .panel{position:relative;background:radial-gradient(circle at 4% 5%,rgba(198,161,91,.13),transparent 40%),linear-gradient(135deg,#0b2b4b 0%,#061c34 85%);border:1px solid rgba(198,161,91,.48);box-shadow:inset 0 2px 0 rgba(221,183,116,.3),0 14px 30px rgba(6,27,51,.13);color:#fff}
 .panel .stepHead h2{color:#fff}
 .panel .stepHead p{color:#bfcfe0}
@@ -83,13 +83,13 @@
 .reset{border-color:#c6a15b;color:#132f4d;font-weight:800;box-shadow:0 4px 12px rgba(6,27,51,.06)}
 .reset:hover{border-color:#a98038;background:#f7eedf}
 @media(max-width:640px){
-  .intro{padding:18px 16px}
-  .introTop{margin-bottom:12px}
-  .eyebrow{font-size:12px}
-  .courseTag{font-size:11px}
-  .weights{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;margin-top:0}
-  .weights span{min-width:0;min-height:65px;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:8px 5px;gap:4px;font-size:11px;line-height:1.4}
-  .weights b{font-size:19px;line-height:1.1}
+  
+  
+  
+  
+  
+  
+  
   .panel{border-radius:13px;padding:20px 17px}
   .panel .stepHead{margin-bottom:18px}
   .panel .stepHead h2{font-size:17px}
@@ -99,6 +99,6 @@
   .panel .marksGrid{gap:8px}
 }
 @media(max-width:360px){
-  .weights span{font-size:10px;padding:8px 3px}
+  
   .panel .marksGrid{grid-template-columns:1fr}
 }

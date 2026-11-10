@@ -138,16 +138,7 @@ export function EnglishGradeCalculator() {
   ] : [];
 
   return <div className={styles.shell} dir="rtl">
-    <header className={styles.intro}>
-      <div className={styles.introTop}><span className={styles.eyebrow}>أدوات النخبة الأكاديمية</span><span className={styles.courseTag}>الجامعة الأردنية</span></div>
-      <h1 className="sr-only">حاسبة علامة اللغة الإنجليزية</h1>
-      <div className={styles.weights} aria-label="أوزان العلامات">
-        <span>التصنيفي الأول <b>20%</b></span>
-        <span>المستويات الثلاثة <b>45%</b></span>
-        <span>التصنيفي النهائي <b>35%</b></span>
-      </div>
-    </header>
-
+    <h1 className="sr-only">حاسبة علامة اللغة الإنجليزية</h1>
     <div className={styles.columns}>
       <div className={styles.formColumn}>
         <section className={styles.panel} aria-label="نتيجة الامتحان التصنيفي الأول">
